@@ -14,9 +14,9 @@ function createPlayer(playerClass,playerName,playerLife) {
 	$player.appendChild($progressbar);
 	$player.appendChild($character);
 	const $life = document.createElement('div');
-	$life.style.width=playerLife
+	$life.style.width=playerLife;
 	const $name = document.createElement('div');
-	$name.innerText=playerName
+	$name.innerText=playerName;
 	$progressbar.appendChild($life);
 	$progressbar.appendChild($name);
 	$img = document.createElement('img');
