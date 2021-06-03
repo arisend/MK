@@ -1,5 +1,5 @@
 function attack(playerName) {
-	console.log(playerName +' Fight...')
+	console.log(playerName +' Fight...');
 }
 
 const player1 = {'name':'Scorpion','hp':100,'weapon':['Knife','Fire']};
@@ -21,9 +21,10 @@ function createPlayer(playerClass,playerName,playerLife) {
 	$progressbar.appendChild($name);
 	$img = document.createElement('img');
 	$img.src = 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif';
-	const $root=document.querySelector('.root')
-	const $arenas=$root.querySelector('div')
-	$arenas.appendChild($player)
+	$character.appendChild($img);
+	const $root=document.querySelector('.root');
+	const $arenas=$root.querySelector('div');
+	$arenas.appendChild($player);
 }
 
 
