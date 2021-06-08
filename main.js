@@ -1,5 +1,5 @@
-$arenas=document.querySelector(".arenas");
-$randomButton = document.querySelector('.button');
+const $arenas=document.querySelector(".arenas");
+const $randomButton = document.querySelector('.button');
 player1 = {
 	player:1,
 	name:'Scorpion',
@@ -8,7 +8,6 @@ player1 = {
 	attack:function(name) {console.log(name + ' Fight...');},
 	img:'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif'
 };
-
 player2 = {
 	player:2,
 	name:'SUB-ZERO',
