@@ -53,20 +53,6 @@ function createPlayer(playerName,playerLife,imgsrc,player) {
 	return $player
 
 };
-<<<<<<< Updated upstream
-function changeHP(player) {
-	const $playerLife = document.querySelector('.player'+ player.player +' .life');
-
-	player.hp -= Math.ceil(Math.random()*20);
-	if (player.hp<0){player.hp=0};
-	$playerLife.style.width = player.hp + '%';
-	if (player.hp==0)
-	{$randomButton.disabled = true;
-
-		if (player.player==1){$arenas.appendChild(playerLose(player2.name))}
-	else{$arenas.appendChild(playerLose(player1.name))}
-	}
-=======
 function getRandom (len){
 	return Math.ceil(Math.random()*len)
 }
@@ -74,7 +60,6 @@ function changeHP(qty) {
 	console.log(qty);
 	this.hp -= qty;
 	if (this.hp<0){this.hp=0};
->>>>>>> Stashed changes
 }
 function elHP(player) {
 	const $playerLife = document.querySelector('.player'+ this.player +' .life');
@@ -110,16 +95,6 @@ $restartButton.addEventListener('click',function(){
 	window.location.reload();
 });
 $randomButton.addEventListener('click',function(){
-<<<<<<< Updated upstream
-	console.log('test')
-	changeHP(player1);
-	changeHP(player2);
-
-});
-
-$arenas.appendChild(createPlayer( player1.name, player1.life,player1.img,player1.player));
-$arenas.appendChild(createPlayer( player2.name, player2.life,player2.img,player2.player));
-=======
 	//console.log('test')
 	player1.changeHP(getRandom (20));
 	player2.changeHP(getRandom (20));
@@ -139,4 +114,3 @@ $arenas.appendChild(createPlayer( player2.name, player2.life,player2.img,player2
 });
 
 
->>>>>>> Stashed changes
