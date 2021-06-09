@@ -90,10 +90,8 @@ function playerWins(name){
 $arenas.appendChild(createPlayer( player1.name, player1.life,player1.img,player1.player));
 $arenas.appendChild(createPlayer( player2.name, player2.life,player2.img,player2.player));
 
-const $restartButton = document.querySelector('.reloadWrap .button');
-$restartButton.addEventListener('click',function(){
-	window.location.reload();
-});
+
+
 $randomButton.addEventListener('click',function(){
 	//console.log('test')
 	player1.changeHP(getRandom (20));
@@ -104,13 +102,24 @@ $randomButton.addEventListener('click',function(){
 	if (player1.hp===0||player2.hp===0)
 	{$randomButton.disabled = true;}
 
-		if (player1.hp===0 && player1.hp < player2.hp){$arenas.appendChild(playerWins(player2.name));
-		$arenas.appendChild(createReloadButton ());}
+	if (player1.hp===0 && player1.hp < player2.hp){$arenas.appendChild(playerWins(player2.name));
+		$arenas.appendChild(createReloadButton ());
+		const $restartButton = document.querySelector('.reloadWrap .button');
+		$restartButton.addEventListener('click',function(){
+		window.location.reload();
+		});}
 	else if (player2.hp===0 && player2.hp < player1.hp){$arenas.appendChild(playerWins(player1.name));
-	$arenas.appendChild(createReloadButton ());}
+		$arenas.appendChild(createReloadButton ());
+		const $restartButton = document.querySelector('.reloadWrap .button');
+		$restartButton.addEventListener('click',function(){
+		window.location.reload();
+		});}
 	else if (player1.hp===0 && player2.hp===0){$arenas.appendChild(playerWins());
-	$arenas.appendChild(createReloadButton ());}
+		$arenas.appendChild(createReloadButton ());
+		const $restartButton = document.querySelector('.reloadWrap .button');
+		$restartButton.addEventListener('click',function(){
+		window.location.reload();
+		});}
 	
 });
-
 
