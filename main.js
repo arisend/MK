@@ -119,7 +119,10 @@ function elHP(player) {
 }
 function renderHP (object){
 	object.style.width = this.hp + '%';
+<<<<<<< HEAD
 	
+=======
+>>>>>>> parent of eb5d43f (Update main.js)
 }
 function createReloadButton () {
 	const $reloadWrap = createElement('div',"reloadWrap");
