@@ -72,7 +72,7 @@ function elHP(player) {
 	return $playerLife
 }
 function renderHP (object){
-	object.style.width = this.hp + '%';
+	object.style.width = this.elHP + '%';
 }
 function createReloadButton () {
 	const $reloadWrap = createElement('div',"reloadWrap");
