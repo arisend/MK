@@ -1,5 +1,5 @@
 const $arenas=document.querySelector(".arenas");
-// const $randomButton = document.querySelector('.button');
+const $randomButton = document.querySelector('.button');
 player1 = {
 	player:1,
 	name:'Scorpion',
@@ -7,9 +7,9 @@ player1 = {
 	weapon:'Fire',
 	attack:function(name) {console.log(name + ' Fight...');},
 	img:'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif',
-	changeHP,
-	renderHP,
-	elHP
+	changeHP: changeHP,
+	renderHP:renderHP,
+	elHP:elHP
 };
 player2 = {
 	player:2,
@@ -18,16 +18,10 @@ player2 = {
 	weapon:'Ice',
 	attack:function(name) {console.log(name + ' Fight...');},
 	img:'http://reactmarathon-api.herokuapp.com/assets/subzero.gif',
-	changeHP,
-	renderHP,
-	elHP
+	changeHP: changeHP,
+	renderHP:renderHP,
+	elHP:elHP
 };
-const HIT = {
-    head: 30,
-    body: 25,
-    foot: 20,
-}
-const ATTACK = ['head', 'body', 'foot'];
 
 function createElement(tag, className){
 	const $tag = document.createElement(tag);
@@ -88,77 +82,44 @@ function playerWins(name){
 	} else {
 		$loseTitle.innerText = 'draw';
 		}
-
+	
 	return $loseTitle
 }
-function appendReloadB() {
-	const $restartButton = document.querySelector('.reloadWrap .button');
-	$restartButton.addEventListener('click',function(){
-	window.location.reload();
-	});
-}
+
 
 $arenas.appendChild(createPlayer( player1.name, player1.life,player1.img,player1.player));
 $arenas.appendChild(createPlayer( player2.name, player2.life,player2.img,player2.player));
 
-function enemyAttack() {
-	const hit = ATTACK[getRandom(3)-1];
-	const defence = ATTACK[getRandom(3)-1];
-	console.log('###: hit', hit);
-	console.log('###: defence', defence);
-	return {
-		value: getRandom(HIT[hit]),
-		hit,
-		defence
-	}
-}
 
 
-
-const $formFight=document.querySelector(".control");
-$formFight.addEventListener('submit',function(e){
-	e.preventDefault();
-	console.dir($formFight);
-	const enemy = enemyAttack();
-	//console.log('###: enemy', enemy);
-	const attack = {};
-	for (let item of $formFight) {
-		if (item.checked== true && item.name == 'hit') {
-			attack.value = getRandom(HIT[item.value]),
-			attack.hit = item.value
-		}
-		if (item.checked==true && item.name == 'defence') {
-			attack.defence = item.value
-		}
-		item.checked= false;
-	}
-	console.log(attack);
-	console.log(enemy);
+$randomButton.addEventListener('click',function(){
+	//console.log('test')
+	player1.changeHP(getRandom (20));
+	player2.changeHP(getRandom (20));
+	player1.renderHP(player1.elHP());
+	player2.renderHP(player2.elHP());
 	
-	if (attack.hit !== enemy.defence ) {
-		player2.changeHP(attack.value);
-		player2.renderHP(player2.elHP());
-	}
-	if (attack.defence !== enemy.hit ) {
-		player1.changeHP(enemy.value);
-		player1.renderHP(player1.elHP());
-	}
 	if (player1.hp===0||player2.hp===0)
-	{$formFight.disabled = true;
+	{$randomButton.disabled = true;}
+
+	if (player1.hp===0 && player1.hp < player2.hp){$arenas.appendChild(playerWins(player2.name));
 		$arenas.appendChild(createReloadButton ());
-		appendReloadB();}
-
-
-	if (player1.hp===0 && player1.hp < player2.hp){
-		$arenas.appendChild(playerWins(player2.name));
-	}
-	else if (player2.hp===0 && player2.hp < player1.hp){
-		$arenas.appendChild(playerWins(player1.name));
-	}
-	else if (player1.hp===0 && player2.hp===0){
-		$arenas.appendChild(playerWins());
-	}
-
-})
-
+		const $restartButton = document.querySelector('.reloadWrap .button');
+		$restartButton.addEventListener('click',function(){
+		window.location.reload();
+		});}
+	else if (player2.hp===0 && player2.hp < player1.hp){$arenas.appendChild(playerWins(player1.name));
+		$arenas.appendChild(createReloadButton ());
+		const $restartButton = document.querySelector('.reloadWrap .button');
+		$restartButton.addEventListener('click',function(){
+		window.location.reload();
+		});}
+	else if (player1.hp===0 && player2.hp===0){$arenas.appendChild(playerWins());
+		$arenas.appendChild(createReloadButton ());
+		const $restartButton = document.querySelector('.reloadWrap .button');
+		$restartButton.addEventListener('click',function(){
+		window.location.reload();
+		});}
+	
+});
 
