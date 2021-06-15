@@ -15,6 +15,8 @@ function generateLogs(type,player1,player2,value){
 			return date.getHours()+":"+date.getMinutes() + " - " +  logs['draw'][0];
 		case "start":
 			return logs['start'].replace('[player1]',player1.name).replace('[player2]',player2.name).replace('[time]',date.getHours()+":"+date.getMinutes());
+		default:
+			return ""
 	}
 }
  const player1 = {
