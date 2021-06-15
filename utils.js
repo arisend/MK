@@ -9,12 +9,12 @@ const ATTACK = ['head', 'body', 'foot'];
 const $formFight=document.querySelector(".control");
 
 
-export function renderLogs(text){
+export const renderLogs = (text) => {
 	const $chat = document.querySelector(".chat");
 	const el = `<p>${text}</p>`
 	$chat.insertAdjacentHTML('afterbegin',el)
 }
-export function enemyAttack() {
+export const enemyAttack = () =>  {
 	const hit = ATTACK[getRandom(3)-1];
 	const defence = ATTACK[getRandom(3)-1];
 	//console.log('###: hit', hit);
@@ -25,7 +25,7 @@ export function enemyAttack() {
 		defence
 	}
 }
-export function playerAttack(){
+export const playerAttack = () => {
 	const attack = {};
 	for (let item of $formFight) {
 		if (item.checked== true && item.name == 'hit') {
@@ -48,30 +48,15 @@ export function createElement(tag, className){
 }
 export const getRandom = (len) => Math.ceil(Math.random()*len)
 
-export function changeHP(qty) {
-	//console.log(qty);
-	this.hp -= qty;
-	if (this.hp<0){
-		this.hp=0
-	};
-}
-export function elHP(player) {
-	const $playerLife = document.querySelector('.player'+ this.player +' .life');
-	
-	return $playerLife
-}
-export function renderHP (object){
-	object.style.width = this.hp + '%';
-	
-}
-export function createReloadButton () {
+
+export const createReloadButton = () => {
 	const $reloadWrap = createElement('div',"reloadWrap");
 	const $button = createElement('button',"button");
 	$button.innerText="Restart";
 	$reloadWrap.appendChild($button);
 	return $reloadWrap
 };
-export function playerWins(name){
+export const playerWins = (name) => {
 	const $loseTitle = createElement('div', 'loseTitle');
 	if (name){
 	$loseTitle.innerText = name + ' win';
@@ -81,9 +66,10 @@ export function playerWins(name){
 
 	return $loseTitle
 }
-export function appendReloadB() {
+export const appendReloadB = () => {
 	const $restartButton = document.querySelector('.reloadWrap .button');
 	$restartButton.addEventListener('click',function(){
 	window.location.reload();
 	});
 }   
+
