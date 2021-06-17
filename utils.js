@@ -8,7 +8,7 @@ const HIT = {
 const ATTACK = ['head', 'body', 'foot'];
 
 const $formFight=document.querySelector(".control");
-
+const $arenas=document.querySelector(".arenas");
 
 export const renderLogs = (text) => {
 	const $chat = document.querySelector(".chat");
