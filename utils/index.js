@@ -74,22 +74,5 @@ export const appendReloadB = () => {
 
 
 
-export function showReesult(){
-	if (player1.hp===0||player2.hp===0)
-	{$formFight.disabled = true;
-		$arenas.appendChild(createReloadButton ());
-		appendReloadB();}
-	if (player1.hp===0 && player1.hp < player2.hp){
-		$arenas.appendChild(playerWins(player2.name));
-		renderLogs(generateLogs('end',player2,player1));
-	}
-	else if (player2.hp===0 && player2.hp < player1.hp){
-		$arenas.appendChild(playerWins(player1.name));
-		renderLogs(generateLogs('end',player1,player2));
-	}
-	else if (player1.hp===0 && player2.hp===0){
-		$arenas.appendChild(playerWins());
-		renderLogs(generateLogs('draw'));
-	}
-}
+
 
