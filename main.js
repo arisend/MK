@@ -23,7 +23,6 @@ player2 = {
 	elHP:elHP
 };
 
-<<<<<<< Updated upstream
 function createElement(tag, className){
 	const $tag = document.createElement(tag);
 	if (className) {$tag.classList.add(className);}
@@ -123,10 +122,4 @@ $randomButton.addEventListener('click',function(){
 		});}
 	
 });
-=======
-import {Game} from './game/index.js';
 
-const game = new Game();
->>>>>>> Stashed changes
-
-game.start();
