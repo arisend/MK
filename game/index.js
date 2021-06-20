@@ -19,6 +19,8 @@ export class Game {
 
             startGame().then(({p1,p2}) => {
                 //console.log(value);
+                p1 = JSON.parse(localStorage.getItem('player1')),"test chtenie";
+
                 player1 = new Player({
                     ...p1,
                     player:1,
