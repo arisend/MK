@@ -16,13 +16,13 @@ export class Player {
                 this.hp=0
             };
         }
-    elHP = (player) => {
+    elHP = () => {
             const $playerLife = document.querySelector(`.${this.selector} .life`);
             
             return $playerLife
         }
     renderHP = (object) => {
-            object.style.width = this.hp + '%';
+            object.style.width = this.elHP + '%';
             
         }
 
