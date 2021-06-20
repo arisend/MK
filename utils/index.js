@@ -120,7 +120,7 @@ export const startGame = async () => {
 
 export const gameTurn = async(object) => {
 	console.log(object);
-		const body = fetch('http://reactmarathon-api.herokuapp.com/api/mk/player/fight', {
+		const body = fetch('https://reactmarathon-api.herokuapp.com/api/mk/player/fight', {
 		method: 'POST',
 		body: JSON.stringify({
 			hit:`${object.hit}`, defence: `${object.defence}`,
