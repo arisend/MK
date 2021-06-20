@@ -22,8 +22,7 @@ export class Player {
             return $playerLife
         }
     renderHP = (object) => {
-            object.style.width = this.elHP + '%';
-            
+            this.elHP().style.width = this.hp + '%';
         }
 
     createPlayer= () => {

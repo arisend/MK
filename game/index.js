@@ -63,7 +63,7 @@ export class Game {
             } else {
                 renderLogs(generateLogs('defence',player2,player1));
             }
-            showReesult();
+            showReesult(player1,player2);
         
         })
         

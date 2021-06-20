@@ -62,7 +62,7 @@ export const generateLogs = (type,{name}={},{name:playerName2,hp}={},value) => {
 	}
 }
 
-export const showReesult = () =>{
+export const showReesult = (player1,player2) =>{
 	if (player1.hp===0||player2.hp===0)
 	{$formFight.disabled = true;
 		$arenas.appendChild(createReloadButton ());
