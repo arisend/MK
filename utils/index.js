@@ -102,7 +102,11 @@ export const playerWins = (name) => {
 export const appendReloadB = () => {
 	const $restartButton = document.querySelector('.reloadWrap .button');
 	$restartButton.addEventListener('click',function(){
-	window.location.reload();
+		setTimeout(() => {
+			// TODO: Здесь должен быть код который перенаправит вас на ваше игровое поле...
+			//  Пример использования: window.location.pathname = 'arenas.html';
+			window.location.pathname = 'index.html';
+		}, 1000);
 	});
 }   
 export  const getPlayers = async() => {
