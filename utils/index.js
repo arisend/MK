@@ -105,7 +105,33 @@ export const appendReloadB = () => {
 	window.location.reload();
 	});
 }   
+export  const getPlayers = async() => {
+	const body = fetch('https://reactmarathon-api.herokuapp.com/api/mk/players').then(res => res.json());
+	return body;
+}
+export const startGame = async () => {
+	const players = await getPlayers();
+	//console.log(players);
+	const p1 = players[getRandom(players.length) -1]
+	const p2 = players[getRandom(players.length) -1]
+	console.log(p1,p2)
+	return {p1,p2}
+	}
 
+export const gameTurn = async(object) => {
+	console.log(object);
+		const body = fetch('http://reactmarathon-api.herokuapp.com/api/mk/player/fight', {
+		method: 'POST',
+		body: JSON.stringify({
+			hit:`${object.hit}`, defence: `${object.defence}`,
+		})
+	}).then(res => res.json());
+	return body;
+}
+export const nextTurn = async (object) => {
+	const turn = await gameTurn(object);
+	return turn
+}
 //
 
 
